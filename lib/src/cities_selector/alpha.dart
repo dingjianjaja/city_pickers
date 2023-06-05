@@ -210,6 +210,11 @@ class AlphaState extends State<Alpha> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+        onTapUp: (details) {
+          Future.delayed(Duration(microseconds: 500)).then((value) {
+            _touchEndEvent();
+          });
+        },
         onVerticalDragDown: (DragDownDetails details) {
           if (_distance2Top == null) {
             RenderBox? renderBox = context.findRenderObject() as RenderBox;
